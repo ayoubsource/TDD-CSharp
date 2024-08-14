@@ -23,7 +23,7 @@ Commit messages follow a specific format to mirror the book’s structure. Each 
  - Before: Describes the context or issue before the code change.
  - After: Describes the result or outcome after the code change.
 
-This structure is designed to facilitate the eventual integration of the adapted examples into a cohesive C#-based TDD book, whether by Jeff Langr, myself, or both in collaboration.
+This structure is designed to facilitate the eventual integration of the adapted examples into a cohesive C#-based TDD book, whether by Jeff Langr and myself.
 
 ## Goals
 
