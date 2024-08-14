@@ -13,29 +13,29 @@ The repository is organized by chapters, with each chapter containing multiple b
 
 Each chapter is represented as a separate repository folder, with branches named according to the incremental steps in the development process. For example:
 
-	•	c2/18/SoundexTest.cs represents Chapter 2, Step 18.
-	•	Each branch is a revision that corresponds to a stage in the book’s example progression.
+ - c2/18/SoundexTest.cs represents Chapter 2, Step 18.
+ - Each branch is a revision that corresponds to a stage in the book’s example progression.
 
 ## Commit Messages
 
 Commit messages follow a specific format to mirror the book’s structure. Each commit message describes the changes made in that increment, allowing for a clear connection between the code and the narrative in the book. For example:
 
-	•	Before: Describes the context or issue before the code change.
-	•	After: Describes the result or outcome after the code change.
+ - Before: Describes the context or issue before the code change.
+ - After: Describes the result or outcome after the code change.
 
 This structure is designed to facilitate the eventual integration of the adapted examples into a cohesive C#-based TDD book, whether by Jeff Langr, myself, or both in collaboration.
 
 ## Goals
 
-  • Faithful Adaptation: Rework all examples in C# while maintaining the integrity of the original lessons and principles.
-	•	Comprehensive Coverage: Address all discussions in the book that are specific to C++ and translate them effectively to the C# environment.
-	•	Future Collaboration: Prepare the groundwork for potential future collaboration with Jeff Langr and The Pragmatic Bookshelf.
+ - Faithful Adaptation: Rework all examples in C# while maintaining the integrity of the original lessons and principles.
+ - Comprehensive Coverage: Address all discussions in the book that are specific to C++ and translate them effectively to the C# environment.
+ - Future Collaboration: Prepare the groundwork for potential future collaboration with Jeff Langr and The Pragmatic Bookshelf.
  
 ## Progress
-	•	Chapter 1: Introduction to TDD with C#
-	•	Chapter 2: Soundex Example in C#
-	•	Chapter 3: Legacy Code Refactoring (WAV Snippet Publisher) in C#
-	•	More chapters to follow…
+ - Chapter 1: Introduction to TDD with C#
+ - Chapter 2: Soundex Example in C#
+ - Chapter 3: Legacy Code Refactoring (WAV Snippet Publisher) in C#
+ - More chapters to follow…
  
 ## Contributing
 
