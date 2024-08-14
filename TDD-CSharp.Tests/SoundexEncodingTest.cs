@@ -8,5 +8,6 @@ public class SoundexEncodingTest
     {
         var soundex = new Soundex();
         var encoded = soundex.Encode("A");
+        Assert.Equal("A", encoded);
     }
 }
