@@ -7,5 +7,6 @@ public class SoundexEncodingTest
     public void RetainsSoleLetterOfOneLetterWord()
     {
         var soundex = new Soundex();
+        var encoded = soundex.Encode("A");
     }
 }
