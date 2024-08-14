@@ -24,18 +24,6 @@ Commit messages follow a specific format to mirror the book’s structure. Each 
  - After: Describes the result or outcome after the code change.
 
 This structure is designed to facilitate the eventual integration of the adapted examples into a cohesive C#-based TDD book, whether by Jeff Langr and myself.
-
-## Goals
-
- - Faithful Adaptation: Rework all examples in C# while maintaining the integrity of the original lessons and principles.
- - Comprehensive Coverage: Address all discussions in the book that are specific to C++ and translate them effectively to the C# environment.
- - Future Collaboration: Prepare the groundwork for potential future collaboration with Jeff Langr and The Pragmatic Bookshelf.
- 
-## Progress
- - Chapter 1: Introduction to TDD with C#
- - Chapter 2: Soundex Example in C#
- - Chapter 3: Legacy Code Refactoring (WAV Snippet Publisher) in C#
- - More chapters to follow…
  
 ## Contributing
 
