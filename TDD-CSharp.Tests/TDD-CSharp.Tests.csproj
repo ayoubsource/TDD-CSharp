@@ -23,4 +23,12 @@
         </PackageReference>
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\TDD-CSharp.Sources\TDD-CSharp.Sources.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="TestsResults\" />
+    </ItemGroup>
+
 </Project>
