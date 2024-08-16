@@ -6,8 +6,11 @@ public class SoundexEncodingTest
     [Fact]
     public void RetainsSoleLetterOfOneLetterWord()
     {
+        // Arrange
         var soundex = new Soundex();
-       var encoded = soundex.Encode("I");
+        // Act
+        var encoded = soundex.Encode("I");
+        // Assert
         Assert.Equal("I000", encoded);
     }
 }
