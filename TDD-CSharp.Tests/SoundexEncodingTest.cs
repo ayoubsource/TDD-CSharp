@@ -3,13 +3,13 @@ using TDD_CSharp.Sources;
 namespace TDD_CSharp.Tests;
 public class SoundexEncodingTest
 {
+    private readonly Soundex _soundex = new();
+
     [Fact]
     public void RetainsSoleLetterOfOneLetterWord()
     {
-        // Arrange
-        var soundex = new Soundex();
         // Act
-        var encoded = soundex.Encode("A");
+        var encoded = _soundex.Encode("A");
         // Assert
         Assert.Equal("A000", encoded);
     }
@@ -17,10 +17,8 @@ public class SoundexEncodingTest
     [Fact]
     public void PadsWithZerosToEnsureThreeDigits()
     {
-        // Arrange
-        var soundex = new Soundex();
         // Act
-        var encoded = soundex.Encode("I");
+        var encoded = _soundex.Encode("I");
         // Assert
         Assert.Equal("I000", encoded);
     }
