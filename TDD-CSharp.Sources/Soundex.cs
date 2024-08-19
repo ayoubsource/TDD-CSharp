@@ -14,6 +14,7 @@ public class Soundex
     
     private string ZeroPad(string word)
     {
-        return word + "000";
+        var zerosNeeded = 4 - word.Length;
+        return word + new string('0', zerosNeeded);
     }
 }
