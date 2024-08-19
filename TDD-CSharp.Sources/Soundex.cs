@@ -2,6 +2,7 @@
 
 public class Soundex
 {
+    private const int MaxCodeLength = 4;
     public string Encode(string word)
     {
         return  ZeroPad(Head(word) + EncodedDigits(word));
@@ -20,7 +21,7 @@ public class Soundex
 
     private string ZeroPad(string word)
     {
-        var zerosNeeded = 4 - word.Length;
+        var zerosNeeded = MaxCodeLength - word.Length;
         return word + new string('0', zerosNeeded);
     }
 }
