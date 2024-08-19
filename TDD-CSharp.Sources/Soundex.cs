@@ -10,9 +10,13 @@ public class Soundex
 
     private string EncodedDigits(string word)
     {
-        return word.Length > 1 ? "1" : string.Empty;
+        return word.Length > 1 ? EncodedDigit() : string.Empty;
     }
 
+    private string EncodedDigit()
+    {
+        return "1";
+    }
     private string Head(string word)
     {
         var encoded = word.Substring(0, 1);
