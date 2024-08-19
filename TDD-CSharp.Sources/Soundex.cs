@@ -10,13 +10,14 @@ public class Soundex
 
     private string EncodedDigits(string word)
     {
-        return word.Length > 1 ? EncodedDigit() : string.Empty;
+        return word.Length > 1 ? EncodedDigit(word[1]) : string.Empty;
     }
 
-    private string EncodedDigit()
+    private string EncodedDigit(char letter)
     {
-        return "1";
+        return letter == 'c' ? "2" : "1";
     }
+    
     private string Head(string word)
     {
         var encoded = word.Substring(0, 1);
