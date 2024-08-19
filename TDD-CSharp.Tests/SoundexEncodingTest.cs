@@ -24,4 +24,10 @@ public class SoundexEncodingTest
         Assert.Equal("A300", _soundex.Encode("Ad"));
         Assert.Equal("A200", _soundex.Encode("Ax"));
     }
+    
+    [Fact]
+    public void IgnoresNonAlphabetics()
+    {
+        Assert.Equal("A000", _soundex.Encode("A#"));
+    }
 }
