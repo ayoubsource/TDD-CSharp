@@ -15,7 +15,13 @@ public class Soundex
 
     private string EncodedDigit(char letter)
     {
-        return letter == 'c' ? "2" : "1";
+        var encoding = new Dictionary<char, string>
+        {
+            {'b', "1"},
+            {'c', "2"},
+            {'d', "3"}
+        };
+        return encoding.TryGetValue(letter, out var digit) ? digit : string.Empty;
     }
     
     private string Head(string word)
