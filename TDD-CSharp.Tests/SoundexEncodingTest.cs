@@ -21,5 +21,6 @@ public class SoundexEncodingTest
     {
         Assert.Equal("A100", _soundex.Encode("Ab"));
         Assert.Equal("A200", _soundex.Encode("Ac"));
+        Assert.Equal("A300", _soundex.Encode("Ad"));
     }
 }
