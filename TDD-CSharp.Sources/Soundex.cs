@@ -25,7 +25,7 @@ public class Soundex
             {'m', "5"}, {'n', "5"},
             {'r', "6"}
         };
-        return encoding.TryGetValue(letter, out var digit) ? digit : string.Empty;
+        return encoding[letter];
     }
     
     private string Head(string word)
