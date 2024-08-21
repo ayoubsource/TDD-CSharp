@@ -15,10 +15,17 @@ public class Soundex
         {
             if (IsComplete(encoding))
                 break;
-            encoding += EncodedDigit(letter);
+
+            if (EncodedDigit(letter) != LastDigit(encoding))
+                encoding += EncodedDigit(letter);
         }
 
         return encoding;
+    }
+
+    private string LastDigit(string encoding)
+    {
+        return string.IsNullOrEmpty(encoding) ? string.Empty : encoding[^1].ToString();
     }
     private bool IsComplete(string encoding)
     {
