@@ -13,6 +13,8 @@ public class Soundex
         var encoding = string.Empty;
         foreach (var letter in word)
         {
+            if (encoding.Length == MaxCodeLength - 1)
+                break;
             encoding += EncodedDigit(letter);
         }
 
