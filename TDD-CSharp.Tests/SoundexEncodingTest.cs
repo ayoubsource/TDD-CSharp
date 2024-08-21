@@ -36,4 +36,9 @@ public class SoundexEncodingTest
     {
         Assert.Equal("A234", _soundex.Encode("Acdl"));  
     }
+    [Fact]
+    public void LimitsLengthToFourCharacters()
+    {
+        Assert.Equal(4, _soundex.Encode("Dcdlb").Length);
+    }
 }
