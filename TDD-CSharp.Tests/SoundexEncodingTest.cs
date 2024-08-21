@@ -46,4 +46,9 @@ public class SoundexEncodingTest
     {
         Assert.Equal("B234", _soundex.Encode("Baeiouhycdl"));
     }
+    [Fact]
+    public void CombinesDuplicateEncodings()
+    {
+        Assert.Equal("A123", _soundex.Encode("Abfcgdt"));
+    }
 }
