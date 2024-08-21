@@ -10,10 +10,15 @@ public class Soundex
 
     private string EncodedDigits(string word)
     {
+        var encoding = string.Empty;
         if (string.IsNullOrEmpty(word))
             return string.Empty;
+        foreach (var letter in word)
+        {
+            encoding += EncodedDigit(letter);
+        }
 
-        return EncodedDigit(word[0]);
+        return encoding;
     }
 
     private string EncodedDigit(char letter)

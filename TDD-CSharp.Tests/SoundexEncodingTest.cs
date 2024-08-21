@@ -31,9 +31,9 @@ public class SoundexEncodingTest
         Assert.Equal("A000", _soundex.Encode("A#"));
     }
     
-    [Fact(Skip = "Temporarily disabled while developing multiple consonant encoding logic")]
+    [Fact]
     public void ReplacesMultipleConsonantsWithDigits()
     {
-        Assert.Equal("A234", _soundex.Encode("Acdl"));
+        Assert.Equal("A234", _soundex.Encode("Acdl"));  
     }
 }
