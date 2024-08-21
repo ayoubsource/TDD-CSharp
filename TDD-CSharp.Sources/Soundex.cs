@@ -13,14 +13,17 @@ public class Soundex
         var encoding = string.Empty;
         foreach (var letter in word)
         {
-            if (encoding.Length == MaxCodeLength - 1)
+            if (IsComplete(encoding))
                 break;
             encoding += EncodedDigit(letter);
         }
 
         return encoding;
     }
-
+    private bool IsComplete(string encoding)
+    {
+        return encoding.Length == MaxCodeLength - 1;
+    }
     private string EncodedDigit(char letter)
     {
         var encoding = new Dictionary<char, string>
