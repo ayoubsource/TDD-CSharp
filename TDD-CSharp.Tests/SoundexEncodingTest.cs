@@ -52,5 +52,12 @@ public class SoundexEncodingTest
         Assert.Equal(_soundex.EncodedDigit('b'), _soundex.EncodedDigit('f'));
         Assert.Equal(_soundex.EncodedDigit('c'), _soundex.EncodedDigit('g'));
         Assert.Equal(_soundex.EncodedDigit('d'), _soundex.EncodedDigit('t'));
-        Assert.Equal("A123", _soundex.Encode("Abfcgdt"));    }
+        Assert.Equal("A123", _soundex.Encode("Abfcgdt"));    
+    }
+    
+    [Fact]
+    public void UppercasesFirstLetter()
+    {
+        Assert.StartsWith("A", _soundex.Encode("abcd"));
+    }
 }
