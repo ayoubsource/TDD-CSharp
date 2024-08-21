@@ -30,4 +30,10 @@ public class SoundexEncodingTest
     {
         Assert.Equal("A000", _soundex.Encode("A#"));
     }
+    
+    [Fact]
+    public void ReplacesMultipleConsonantsWithDigits()
+    {
+        Assert.Equal("A234", _soundex.Encode("Acdl"));
+    }
 }
