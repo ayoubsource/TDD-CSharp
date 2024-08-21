@@ -44,7 +44,7 @@ public class SoundexEncodingTest
     [Fact]
     public void IgnoresVowelLikeLetters()
     {
-        Assert.Equal("B234", _soundex.Encode("Baeiouhycdl"));
+        Assert.Equal("B234", _soundex.Encode("BaAeEiIoOuUhHyYcdl"));
     }
     [Fact]
     public void CombinesDuplicateEncodings()
