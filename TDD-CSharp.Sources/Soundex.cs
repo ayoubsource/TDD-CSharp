@@ -24,7 +24,7 @@ public class Soundex
     {
         return encoding.Length == MaxCodeLength - 1;
     }
-    private string EncodedDigit(char letter)
+    public string EncodedDigit(char letter)
     {
         var encoding = new Dictionary<char, string>
         { 
