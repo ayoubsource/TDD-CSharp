@@ -5,9 +5,12 @@ public class Soundex
     private const int MaxCodeLength = 4;
     public string Encode(string word)
     {
-        return ZeroPad(Head(word) + EncodedDigits(Tail(word)));
+        return ZeroPad(UpperFront(Head(word)) + EncodedDigits(Tail(word)));
     }
-
+    private string UpperFront(string input)
+    {
+        return input.Length > 0 ? char.ToUpper(input[0]).ToString() : string.Empty;
+    }
     private string EncodedDigits(string word)
     {
         var encoding = string.Empty;
