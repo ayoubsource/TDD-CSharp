@@ -3,6 +3,7 @@
 public class Soundex
 {
     private const int MaxCodeLength = 4;
+    public const string NotADigit = "*";
     public string Encode(string word)
     {
         return ZeroPad(UpperFront(Head(word)) + EncodedDigits(Tail(word)));
@@ -18,8 +19,9 @@ public class Soundex
         {
             if (IsComplete(encoding))
                 break;
-
-            if (EncodedDigit(letter) != LastDigit(encoding))
+            
+            var digit = EncodedDigit(letter);
+            if (digit != NotADigit && digit != LastDigit(encoding))
                 encoding += EncodedDigit(letter);
         }
 
@@ -28,7 +30,7 @@ public class Soundex
 
     private string LastDigit(string encoding)
     {
-        return string.IsNullOrEmpty(encoding) ? string.Empty : encoding[^1].ToString();
+        return string.IsNullOrEmpty(encoding) ? NotADigit : encoding[^1].ToString();
     }
     private bool IsComplete(string encoding)
     {
@@ -46,7 +48,7 @@ public class Soundex
             {'m', "5"}, {'n', "5"},
             {'r', "6"}
         };
-        return encoding.TryGetValue(letter, out var digit) ? digit : string.Empty;
+        return encoding.TryGetValue(letter, out var digit) ? digit : NotADigit;
     }
     
     private string Head(string word)
