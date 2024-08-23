@@ -6,7 +6,7 @@ public class Soundex
     public const string NotADigit = "*";
     public string Encode(string word)
     {
-        return ZeroPad(UpperFront(Head(word)) + EncodedDigits(Tail(word)));
+        return ZeroPad(UpperFront(Head(word)) + Tail(EncodedDigits(word)));
     }
     private string UpperFront(string input)
     {
@@ -14,8 +14,9 @@ public class Soundex
     }
     private string EncodedDigits(string word)
     {
-        var encoding = string.Empty;
-        foreach (var letter in word)
+        var encoding = string.Empty; 
+        encoding += EncodedDigit(word[0]);
+        foreach (var letter in Tail(word))
         {
             if (IsComplete(encoding))
                 break;
@@ -34,7 +35,7 @@ public class Soundex
     }
     private bool IsComplete(string encoding)
     {
-        return encoding.Length == MaxCodeLength - 1;
+        return encoding.Length == MaxCodeLength;
     }
     public string EncodedDigit(char letter)
     {

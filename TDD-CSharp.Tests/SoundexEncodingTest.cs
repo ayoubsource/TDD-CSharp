@@ -65,5 +65,11 @@ public class SoundexEncodingTest
     public void IgnoresCaseWhenEncodingConsonants()
     {
         Assert.Equal(_soundex.Encode("BCDL"), _soundex.Encode("Bcdl"));
-    }   
+    }
+    
+    [Fact]
+    public void CombinesDuplicateCodesWhenSecondLetterDuplicatesFirst()
+    {
+        Assert.Equal("B230", _soundex.Encode("Bbcd"));
+    }
 }
