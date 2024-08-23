@@ -14,8 +14,14 @@ public class Soundex
     }
     private string EncodedDigits(string word)
     {
-        var encoding = string.Empty; 
-        encoding += EncodedDigit(word[0]);
+        var encoding = string.Empty;
+        EncodHead( ref encoding, word);
+        EncodingTail(ref encoding,word);
+        return encoding;
+    }
+
+    private void EncodingTail(ref string encoding, string word)
+    {
         foreach (var letter in Tail(word))
         {
             if (IsComplete(encoding))
@@ -25,8 +31,11 @@ public class Soundex
             if (digit != NotADigit && digit != LastDigit(encoding))
                 encoding += EncodedDigit(letter);
         }
+    }
 
-        return encoding;
+    private void EncodHead(ref string encoding, string word)
+    {
+        encoding += EncodedDigit(word[0]);
     }
 
     private string LastDigit(string encoding)
