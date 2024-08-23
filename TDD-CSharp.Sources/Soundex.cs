@@ -22,18 +22,25 @@ public class Soundex
 
     private void EncodingTail(ref string encoding, string word)
     {
-        foreach (var letter in Tail(word))
+        for (var i = 1; i < word.Length; i++)
         {
-            if (!IsComplete(encoding)) 
-                EncodeLetter(ref encoding, letter);
+            if (!IsComplete(encoding))
+                EncodeLetter(ref encoding, word[i], word[i - 1]);
         }
     }
     
-    private void EncodeLetter(ref string encoding, char letter)
+    private void EncodeLetter(ref string encoding, char letter, char lastLetter)
     {
         var digit = EncodedDigit(letter);
-        if (digit != NotADigit && digit != LastDigit(encoding))
+        if (digit != NotADigit && 
+            (digit != LastDigit(encoding) || IsVowel(lastLetter)))
+        {
             encoding += digit;
+        }
+    }
+    private bool IsVowel(char letter)
+    {
+        return "aeiouy".Contains(Lower(letter));
     }
 
     private void EncodHead(ref string encoding, string word)
