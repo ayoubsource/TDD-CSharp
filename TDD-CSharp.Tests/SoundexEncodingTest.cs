@@ -60,4 +60,10 @@ public class SoundexEncodingTest
     {
         Assert.StartsWith("A", _soundex.Encode("abcd"));
     }
+    
+    [Fact]
+    public void IgnoresCaseWhenEncodingConsonants()
+    {
+        Assert.Equal(_soundex.Encode("BCDL"), _soundex.Encode("Bcdl"));
+    }   
 }

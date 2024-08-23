@@ -48,7 +48,8 @@ public class Soundex
             {'m', "5"}, {'n', "5"},
             {'r', "6"}
         };
-        return encoding.TryGetValue(letter, out var digit) ? digit : NotADigit;
+        var lowerCaseLetter = Lower(letter);
+        return encoding.TryGetValue(lowerCaseLetter, out var digit) ? digit : NotADigit;
     }
     
     private string Head(string word)
@@ -59,6 +60,10 @@ public class Soundex
     private string Tail(string word)
     {
         return word.Substring(1);
+    }
+    private char Lower(char c)
+    {
+        return char.ToLower(c);
     }
     private string ZeroPad(string word)
     {
