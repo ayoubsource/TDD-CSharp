@@ -24,13 +24,16 @@ public class Soundex
     {
         foreach (var letter in Tail(word))
         {
-            if (IsComplete(encoding))
-                break;
-            
-            var digit = EncodedDigit(letter);
-            if (digit != NotADigit && digit != LastDigit(encoding))
-                encoding += EncodedDigit(letter);
+            if (!IsComplete(encoding)) 
+                EncodeLetter(ref encoding, letter);
         }
+    }
+    
+    private void EncodeLetter(ref string encoding, char letter)
+    {
+        var digit = EncodedDigit(letter);
+        if (digit != NotADigit && digit != LastDigit(encoding))
+            encoding += digit;
     }
 
     private void EncodHead(ref string encoding, string word)
