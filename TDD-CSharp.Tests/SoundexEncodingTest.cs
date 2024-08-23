@@ -72,4 +72,10 @@ public class SoundexEncodingTest
     {
         Assert.Equal("B230", _soundex.Encode("Bbcd"));
     }
+    
+    [Fact]
+    public void DoesNotCombineDuplicateEncodingsSeparatedByVowels()
+    {
+        Assert.Equal("J110", _soundex.Encode("Jbob"));
+    }
 }
