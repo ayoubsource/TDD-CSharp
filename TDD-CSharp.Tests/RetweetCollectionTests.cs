@@ -1,10 +1,20 @@
+using TDD_CSharp.Sources.RetweetCollection;
+
 namespace TDD_CSharp.Tests;
 
 public class RetweetCollectionTests
 {
+    private readonly RetweetCollection _collection = new RetweetCollection();
+
     [Fact]
     public void IsEmptyWhenCreated()
     {
-        var retweets = new RetweetCollection();
+        Assert.True(_collection.IsEmpty());
+    }
+
+    [Fact]
+    public void HasSizeZeroWhenCreated()
+    {
+        Assert.Equal(0u, _collection.Size());
     }
 }
