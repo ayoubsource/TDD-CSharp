@@ -2,24 +2,25 @@ namespace TDD_CSharp.Sources.RetweetCollection;
 
 public class RetweetCollection
 {
-    private uint _size;
+    private bool _isEmpty;
+
     public RetweetCollection()
     {
-        _size = 0;
+        _isEmpty = true;
     }
 
     public bool IsEmpty()
     {
-        return _size == 0;
-    }
-
-    public uint Size()
-    {
-        return _size;
+        return _isEmpty;
     }
 
     public void Add(Tweet tweet)
     {
-        _size = 1;
+        _isEmpty = false;
     }
+
+    public uint Size()
+    {
+        return 0;
+    }  
 }
