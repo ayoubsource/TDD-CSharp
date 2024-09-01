@@ -31,4 +31,15 @@ public class RetweetCollectionTests
         _collection.Add(new Tweet());
         Assert.Equal(1u, _collection.Size());
     }
+    
+    [Fact]
+    public void DecreasesSizeAfterRemovingTweet()
+    {
+        var tweet = new Tweet();
+        _collection.Add(tweet);
+        _collection.Remove(tweet);
+        
+        Assert.Equal(0u, _collection.Size());
+        Assert.True(_collection.IsEmpty()); // DON'T DO THIS
+    }
 }
