@@ -5,7 +5,7 @@ namespace TDD_CSharp.Tests;
 public class RetweetCollectionTests
 {
     private readonly RetweetCollection _collection = new RetweetCollection();
-
+    
     [Fact]
     public void IsEmptyWhenCreated()
     {
@@ -84,5 +84,29 @@ public class RetweetCollectionTests
 
         // Assert
         Assert.Equal(1u, size);
+    }
+}
+
+public class RetweetCollectionWithOneTweetTests
+{
+    private readonly RetweetCollection _collection;
+
+    // Constructor serves as the setup method
+    public RetweetCollectionWithOneTweetTests()
+    {
+        _collection = new RetweetCollection();
+        _collection.Add(new Tweet());
+    }
+
+    [Fact]
+    public void IsNoLongerEmpty()
+    {
+        Assert.False(_collection.IsEmpty());
+    }
+
+    [Fact]
+    public void HasSizeOfOne()
+    {
+        Assert.Equal(1u, _collection.Size());
     }
 }
