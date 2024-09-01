@@ -32,32 +32,23 @@ public class RetweetCollectionTests
         Assert.Equal(1u, _collection.Size());
     }
     
+    private void AssertHasSize(RetweetCollection collection, uint expectedSize)
+    {
+        Assert.Equal(expectedSize, collection.Size());
+        Assert.Equal(expectedSize == 0, collection.IsEmpty());
+    }
+
     [Fact]
     public void DecreasesSizeAfterRemovingTweet()
     {
-        //Arrange
+        // Arrange
         var tweet = new Tweet();
-        
-        //Act
         _collection.Add(tweet);
-        _collection.Remove(tweet);
-        
-        //Assert
-        Assert.Equal(0u, _collection.Size());
-    }
 
-    // AVOID doing this
-    [Fact]
-    public void IsEmptyAfterRemovingTweet()
-    {
-        //Arrange
-        var tweet = new Tweet();
-        
-        //Act
-        _collection.Add(tweet);
+        // Act
         _collection.Remove(tweet);
-        
-        //Assert
-        Assert.True(_collection.IsEmpty());
+
+        // Assert
+        AssertHasSize(_collection, 0u);
     }
 }
