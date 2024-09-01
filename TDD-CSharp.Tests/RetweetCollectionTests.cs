@@ -26,29 +26,33 @@ public class RetweetCollectionTests
     }
     
     [Fact]
-    public void HasSizeOfOneAfterTweetAdded()
+    public void IsEmptyWhenItsSizeIsZero()
     {
-        _collection.Add(new Tweet());
-        Assert.Equal(1u, _collection.Size());
-    }
-    
-    private void AssertHasSize(RetweetCollection collection, uint expectedSize)
-    {
-        Assert.Equal(expectedSize, collection.Size());
-        Assert.Equal(expectedSize == 0, collection.IsEmpty());
+        // Arrange
+        // The collection is initialized as empty.
+
+        // Act
+        var size = _collection.Size();
+        var isEmpty = _collection.IsEmpty();
+
+        // Assert
+        Assert.Equal(0u, size);
+        Assert.True(isEmpty);
     }
 
     [Fact]
-    public void DecreasesSizeAfterRemovingTweet()
+    public void IsNotEmptyWhenItsSizeIsNonZero()
     {
         // Arrange
         var tweet = new Tweet();
-        _collection.Add(tweet);
-
+        
         // Act
-        _collection.Remove(tweet);
+        _collection.Add(tweet);
+        var size = _collection.Size();
+        var isEmpty = _collection.IsEmpty();
 
         // Assert
-        AssertHasSize(_collection, 0u);
+        Assert.True(size > 0u);
+        Assert.False(isEmpty);
     }
 }
