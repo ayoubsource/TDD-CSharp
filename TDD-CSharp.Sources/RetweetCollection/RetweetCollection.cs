@@ -21,6 +21,6 @@ public class RetweetCollection
 
     public uint Size()
     {
-        return 0;
+        return IsEmpty() ? 0u : 1u;
     }  
 }
