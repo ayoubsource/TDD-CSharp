@@ -55,4 +55,20 @@ public class RetweetCollectionTests
         Assert.True(size > 0u);
         Assert.False(isEmpty);
     }
+    
+    [Fact]
+    public void IgnoresDuplicateTweetAdded()
+    {
+        // Arrange
+        var tweet = new Tweet("msg", "@user");
+        var duplicate = new Tweet(tweet);
+
+        // Act
+        _collection.Add(tweet);
+        _collection.Add(duplicate);
+        var size = _collection.Size();
+
+        // Assert
+        Assert.Equal(1u, size);
+    }
 }
