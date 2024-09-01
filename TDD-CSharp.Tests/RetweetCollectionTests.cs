@@ -17,4 +17,11 @@ public class RetweetCollectionTests
     {
         Assert.Equal(0u, _collection.Size());
     }
+
+    [Fact]
+    public void IsNoLongerEmptyAfterTweetAdded()
+    {
+        _collection.Add(new Tweet());
+        Assert.False(_collection.IsEmpty());
+    }
 }
