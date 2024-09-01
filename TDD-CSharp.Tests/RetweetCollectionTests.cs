@@ -89,12 +89,14 @@ public class RetweetCollectionTests
 public class RetweetCollectionWithOneTweetTests
 {
     private readonly RetweetCollection _collection;
+    private readonly Tweet _tweet;
 
     // Constructor serves as the setup method
     public RetweetCollectionWithOneTweetTests()
     {
         _collection = new RetweetCollection();
-        _collection.Add(new Tweet("msg", "@user"));
+        _tweet = new Tweet("msg", "@user");
+        _collection.Add(_tweet);
     }
 
     [Fact]
@@ -107,5 +109,19 @@ public class RetweetCollectionWithOneTweetTests
     public void HasSizeOfOne()
     {
         Assert.Equal(1u, _collection.Size());
+    }
+    
+    [Fact]
+    public void IgnoresDuplicateTweetAdded()
+    {
+        // Arrange
+        var duplicate = new Tweet(_tweet.Message, _tweet.User); // Duplicate tweet
+
+        // Act
+        _collection.Add(duplicate);
+        var size = _collection.Size();
+
+        // Assert
+        Assert.Equal(1u, size);  // Size should remain 1
     }
 }
