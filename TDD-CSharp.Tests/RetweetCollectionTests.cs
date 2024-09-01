@@ -80,10 +80,9 @@ public class RetweetCollectionTests
         // Act
         _collection.Add(tweet);
         _collection.Add(duplicate);
-        var size = _collection.Size();
 
         // Assert
-        Assert.Equal(1u, size);
+        Assert.Equal(1u, _collection.Size());
     }
 }
 
@@ -95,7 +94,7 @@ public class RetweetCollectionWithOneTweetTests
     public RetweetCollectionWithOneTweetTests()
     {
         _collection = new RetweetCollection();
-        _collection.Add(new Tweet());
+        _collection.Add(new Tweet("msg", "@user"));
     }
 
     [Fact]
