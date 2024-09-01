@@ -24,4 +24,11 @@ public class RetweetCollectionTests
         _collection.Add(new Tweet());
         Assert.False(_collection.IsEmpty());
     }
+    
+    [Fact]
+    public void HasSizeOfOneAfterTweetAdded()
+    {
+        _collection.Add(new Tweet());
+        Assert.Equal(1u, _collection.Size());
+    }
 }
