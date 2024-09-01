@@ -13,16 +13,30 @@ public class RetweetCollectionTests
     }
 
     [Fact]
-    public void HasSizeZeroWhenCreated()
+    public void IsNoLongerEmptyAfterTweetAdded()
     {
-        Assert.Equal(0u, _collection.Size());
+        // Arrange
+        var tweet = new Tweet();
+
+        // Act
+        _collection.Add(tweet);
+
+        // Assert
+        Assert.False(_collection.IsEmpty());
     }
 
     [Fact]
-    public void IsNoLongerEmptyAfterTweetAdded()
+    public void HasSizeOfOneAfterTweetAdded()
     {
-        _collection.Add(new Tweet());
-        Assert.False(_collection.IsEmpty());
+        // Arrange
+        var tweet = new Tweet();
+
+        // Act
+        _collection.Add(tweet);
+        var size = _collection.Size();
+
+        // Assert
+        Assert.Equal(1u, size);
     }
     
     [Fact]
