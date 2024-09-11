@@ -9,6 +9,11 @@ public class HttpStub : Http
 
     public override string Get(string url)
     {
-        return "???";
+        return @"{ ""address"": {
+                    ""road"": ""Drury Ln"",
+                    ""city"": ""Fountain"",
+                    ""state"": ""CO"",
+                    ""country"": ""US""
+                 }}";
     }
 }
