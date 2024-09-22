@@ -4,12 +4,8 @@ namespace TDD_CSharp.Tests;
 
 public class APortfolio
 {
-    private readonly Portfolio _portfolio;
-
-    public APortfolio()
-    {
-        _portfolio = new Portfolio();
-    }
+    private const string Ibm = "IBM";
+    private readonly Portfolio _portfolio = new();
 
     [Fact]
     public void IsEmptyWhenCreated()
@@ -20,7 +16,7 @@ public class APortfolio
     [Fact]
     public void IsNotEmptyAfterPurchase()
     {
-        _portfolio.Purchase("IBM", 1);
+        _portfolio.Purchase(Ibm, 1);
         Assert.False(_portfolio.IsEmpty());
     }
 
@@ -33,7 +29,13 @@ public class APortfolio
     [Fact]
     public void AnswersShareCountForPurchasedSymbol()
     {
-        _portfolio.Purchase("IBM", 2);
-        Assert.Equal(2u, _portfolio.ShareCount("IBM"));
+        _portfolio.Purchase(Ibm, 2);
+        Assert.Equal(2u, _portfolio.ShareCount(Ibm));
+    }
+
+    [Fact]
+    public void ThrowsOnPurchaseOfZeroShares()
+    {
+        Assert.Throws<InvalidPurchaseException>(() => _portfolio.Purchase(Ibm, 0));
     }
 }
