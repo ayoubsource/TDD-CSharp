@@ -22,8 +22,10 @@ public class HttpStub : Http
 
     private void Verify(string url)
     {
-        var expectedArgs = "lat=" + APlaceDescriptionService.ValidLatitude + "&" +
-                           "lon=" + APlaceDescriptionService.ValidLongitude;
-        Assert.EndsWith(expectedArgs, url);
+        const string urlStart = "http://open.mapquestapi.com/nominatim/v1/reverse?format=json&";
+        var expected = urlStart + 
+                       "lat=" + APlaceDescriptionService.ValidLatitude + "&" +
+                       "lon=" + APlaceDescriptionService.ValidLongitude;
+        Assert.Equal(expected, url);
     }
 }
