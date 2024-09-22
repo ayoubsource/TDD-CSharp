@@ -11,11 +11,10 @@ public class PlaceDescriptionService
 
     public string SummaryDescription(string latitude, string longitude)
     {
-        var getRequestUrl = ""; // URL construction can be added here
+        var getRequestUrl = "lat=" + latitude + "&lon=" + longitude;
         var jsonResponse = _http.Get(getRequestUrl);
         var extractor = new AddressExtractor();
         var address = extractor.AddressFrom(jsonResponse);
-
         return $"{address.Road}, {address.City}, {address.State}, {address.Country}";
     }
 }
