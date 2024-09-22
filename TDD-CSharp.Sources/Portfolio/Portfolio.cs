@@ -2,17 +2,15 @@ namespace TDD_CSharp.Sources.Portfolio;
 
 public class Portfolio
 {
-    private bool _isEmpty = true;
     private uint _shareCount = 0;
 
     public bool IsEmpty()
     {
-        return _isEmpty;
+        return _shareCount == 0;
     }
 
     public void Purchase(string symbol, uint shareCount)
     {
-        _isEmpty = false;
         _shareCount = shareCount;
     }
 
