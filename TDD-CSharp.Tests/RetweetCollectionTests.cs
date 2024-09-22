@@ -75,7 +75,7 @@ public class RetweetCollectionTests
     {
         // Arrange
         var tweet = new Tweet("msg", "@user");
-        var duplicate = new Tweet(tweet);
+        var duplicate = new Tweet(tweet.Message, tweet.User);
 
         // Act
         _collection.Add(tweet);

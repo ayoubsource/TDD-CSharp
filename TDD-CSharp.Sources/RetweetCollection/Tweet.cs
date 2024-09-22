@@ -3,18 +3,21 @@ namespace TDD_CSharp.Sources.RetweetCollection;
 public class Tweet
 {
     private const string NullUser = " ";
-    private readonly string _message;
-    private readonly string _user;
+    public  string Message { get; }
+    public  string User { get; }
 
-    public Tweet(string message = "", string user = NullUser)
+    public Tweet()
     {
-        _message = message;
-        _user = user;
-
-        if (!IsValid(_user))
+        
+    }
+    public Tweet(string message, string user = NullUser)
+    {
+        if (!IsValid(user))
         {
             throw new ArgumentException("Invalid user: User must start with '@'.");
         }
+        Message = message;
+        User = user;
     }
 
     private bool IsValid(string user)
